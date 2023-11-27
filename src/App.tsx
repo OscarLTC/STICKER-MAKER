@@ -1,34 +1,54 @@
+import { Sheet } from './components/sheet'
+import { Form } from './components/form'
+import jsPDF from 'jspdf'
+import './app.css'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import printJS from 'print-js'
+import html2canvas from 'html2canvas'
 function App() {
-  const [count, setCount] = useState(0)
+  //Funtion to create docx
 
+  // const handleDownloadPDF = () => {
+  //   const divElement = document.getElementById('my-div')
+
+  //   if (!divElement) {
+  //     console.error('El elemento con id "my-div" no fue encontrado.')
+  //     return
+  //   }
+
+  //   html2canvas(divElement).then((canvas) => {
+  //     const imgData = canvas.toDataURL('image/png')
+  //     const pdf = new jsPDF()
+  //     pdf.addImage(
+  //       imgData,
+  //       'PNG',
+  //       0,
+  //       0,
+  //       pdf.internal.pageSize.getWidth(),
+  //       pdf.internal.pageSize.getHeight(),
+  //     )
+  //     pdf.save('documento.pdf')
+  //   })
+  // }
+
+  // return (
+  //   <div>
+  //     <div
+  //       id='my-div'
+  //       style={{ width: '21cm', height: '29.7cm', border: '1px solid #ccc' }}
+  //     >
+  //       {/* Contenido de tu hoja de trabajo */}
+  //       <h1>Mi Hoja de Trabajo</h1>
+  //       <p>Contenido del documento...</p>
+  //     </div>
+  //     <button onClick={handleDownloadPDF}>Descargar como PDF</button>
+  //   </div>
+  // )
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='h-[100vh] flex'>
+      <Sheet />
+      <Form />
+    </div>
   )
 }
 
